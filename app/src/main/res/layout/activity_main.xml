@@ -16,6 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
+    <TextView
+        android:id="@+id/anzBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anz Brand"
+        app:layout_constraintBottom_toTopOf="@+id/goToStartpageBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"

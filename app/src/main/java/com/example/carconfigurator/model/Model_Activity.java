@@ -1,4 +1,4 @@
-package com.example.carconfigurator.inProgress;
+package com.example.carconfigurator.model;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -8,8 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carconfigurator.R;
+import com.example.carconfigurator.ConfiguratedCar;
+import com.example.carconfigurator.brand.Brand;
+import com.example.carconfigurator.brand.Brand_Querries;
+import com.example.carconfigurator.database.ConnectionException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Model_Activity extends AppCompatActivity {
 
@@ -20,7 +25,7 @@ public class Model_Activity extends AppCompatActivity {
 
         ConfiguratedCar configuratedCar = (ConfiguratedCar) getIntent().getSerializableExtra("configuratedCar");
 
-        ArrayList<Model> modelList = fillModelList();
+        List<Model> modelList = fillModelList();
 
         TextView brandNameTextView = findViewById(R.id.brandNameTextView);
         assert configuratedCar != null;
@@ -29,19 +34,21 @@ public class Model_Activity extends AppCompatActivity {
         buildRecyclerView(modelList, configuratedCar);
     }
 
-    private ArrayList<Model> fillModelList() {
-        ArrayList<Model> modelList = new ArrayList<>();
-        modelList.add(new Model(R.drawable.ic_car, "Model Brumm Brumm"));
-        modelList.add(new Model(R.drawable.ic_car, "Model Brumm"));
-        modelList.add(new Model(R.drawable.ic_car, "Model"));
+    private List<Model> fillModelList() {
+        ArrayList<Model> modelList = null;
+        try {
+            modelList = (ArrayList<Model>) Model_Querries.getAllData();
+        } catch (ConnectionException e) {
+            e.printStackTrace();
+        }
         return modelList;
     }
 
-    private void buildRecyclerView(ArrayList<Model> modelList, ConfiguratedCar configuratedCar) {
+    private void buildRecyclerView(List<Model> modelList, ConfiguratedCar configuratedCar) {
         RecyclerView recyclerView = findViewById(R.id.modelRecyclerView);
         recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        Model_Adapter adapter = new Model_Adapter(modelList);
+        Model_Adapter adapter = new Model_Adapter((ArrayList<Model>) modelList);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

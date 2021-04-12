@@ -10,10 +10,10 @@ public class Connector {
     private static final String driver = "net.sourceforge.jtds.jdbc.Driver";
     private static final String databaseTest = "Test";
     private static final String database = "CarConfigurator";
-    private static final String username = "admin";
-    private static final String password = "admin";
+    private static final String username = "superadmin";
+    private static final String password = "superadmin";
     private static final String urlTest = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+databaseTest;
-    private static final String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+databaseTest;
+    private static final String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
     private static Connection testConnection;
     private static Connection connection;
 

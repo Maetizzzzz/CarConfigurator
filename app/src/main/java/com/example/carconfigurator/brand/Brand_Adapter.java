@@ -1,4 +1,4 @@
-package com.example.carconfigurator.inProgress;
+package com.example.carconfigurator.brand;
 
 import android.view.LayoutInflater;
 import android.view.View;

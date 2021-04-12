@@ -1,4 +1,7 @@
-package com.example.carconfigurator.inProgress;
+package com.example.carconfigurator;
+
+import com.example.carconfigurator.brand.Brand;
+import com.example.carconfigurator.model.Model;
 
 import java.io.Serializable;
 

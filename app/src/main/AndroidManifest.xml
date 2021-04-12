@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".inProgress.Brand_Activity" />
-        <activity android:name=".inProgress.Model_Activity" />
+        <activity android:name=".brand.Brand_Activity" />
+        <activity android:name=".model.Model_Activity" />
     </application>
 
 </manifest>

@@ -16,9 +16,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.carconfigurator.brand.Brand;
+import com.example.carconfigurator.brand.Brand_Querries;
+import com.example.carconfigurator.database.ConnectionException;
 import com.example.carconfigurator.database.Connector;
 import com.example.carconfigurator.database.TestQuerries;
-import com.example.carconfigurator.inProgress.Brand_Activity;
+import com.example.carconfigurator.brand.Brand_Activity;
+import com.example.carconfigurator.model.Model_Querries;
 import com.example.carconfigurator.testSpinner.SpinnerAdapter;
 import com.example.carconfigurator.testSpinner.SpinnerItem;
 
@@ -42,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        textView.setText(Connector.connectToTestDatabase());
+        textView.setText(Connector.connectToCarConfiguratorDatabase());
+        Connector.connectToTestDatabase();
+        TextView anzBrand = findViewById(R.id.anzBrand);
+
+        anzBrand.setText(Model_Querries.Q_GETALLDATA);
     }
 
     private void createOnClickEvent() {
