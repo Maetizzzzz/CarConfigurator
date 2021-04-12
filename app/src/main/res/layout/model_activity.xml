@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/brandNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/modellbezeichnung"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_marginStart="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/modelRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:background="@color/cardview_dark_background"
+        android:padding="4dp" />
+</RelativeLayout>

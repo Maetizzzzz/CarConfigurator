@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CarConfigurator</string>
     <string name="sql">SQL</string>
+    <string name="brand_image_description">Shows brand Image</string>
+    <string name="default_text_brandTextView">Unknown</string>
+    <string name="modellbezeichnung">Modellbezeichnung</string>
 </resources>
