@@ -1,5 +1,6 @@
 package com.example.carconfigurator.model;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -9,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carconfigurator.R;
 import com.example.carconfigurator.ConfiguratedCar;
-import com.example.carconfigurator.brand.Brand;
-import com.example.carconfigurator.brand.Brand_Querries;
+import com.example.carconfigurator.brand.Brand_Activity;
 import com.example.carconfigurator.database.ConnectionException;
+import com.example.carconfigurator.version.Version_Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class Model_Activity extends AppCompatActivity {
 
         ConfiguratedCar configuratedCar = (ConfiguratedCar) getIntent().getSerializableExtra("configuratedCar");
 
-        List<Model> modelList = fillModelList();
+        List<Model> modelList = fillModelList(configuratedCar);
 
         TextView brandNameTextView = findViewById(R.id.brandNameTextView);
         assert configuratedCar != null;
@@ -34,10 +35,10 @@ public class Model_Activity extends AppCompatActivity {
         buildRecyclerView(modelList, configuratedCar);
     }
 
-    private List<Model> fillModelList() {
+    private List<Model> fillModelList(ConfiguratedCar configuratedCar) {
         ArrayList<Model> modelList = null;
         try {
-            modelList = (ArrayList<Model>) Model_Querries.getAllData();
+            modelList = (ArrayList<Model>) Model_Querries.getAllDataFromBrand(configuratedCar.getBrand().getId());
         } catch (ConnectionException e) {
             e.printStackTrace();
         }
@@ -57,6 +58,9 @@ public class Model_Activity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 configuratedCar.setModel(modelList.get(position));
+                Intent intent = new Intent(Model_Activity.this, Version_Activity.class);
+                intent.putExtra("configuratedCar", configuratedCar);
+                startActivity(intent);
             }
         });
     }

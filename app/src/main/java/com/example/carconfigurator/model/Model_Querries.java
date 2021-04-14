@@ -5,6 +5,7 @@ import com.example.carconfigurator.database.ConnectionException;
 import com.example.carconfigurator.database.Connector;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,15 +21,17 @@ public class Model_Querries {
                     Model_Table.PRICE.value +", "+
                     Model_Table.IMAGE.value +", "+
                     Model_Table.ID_BRAND.value +" "+
-                    "FROM Model;";
+                    "FROM " + Model_Table.TABLE_NAME.value +" "+
+                    "WHERE "+ Model_Table.ID_BRAND.value + "= ?;";
 
-    public static List<Model> getAllData() throws ConnectionException {
+    public static List<Model> getAllDataFromBrand(int id_brand) throws ConnectionException {
         checkConnection();
         List<Model> modelList = null;
         if (connection != null) {
             try {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(Q_GETALLDATA);
+                PreparedStatement statement = connection.prepareStatement(Q_GETALLDATA);
+                statement.setInt(1, id_brand);
+                ResultSet resultSet = statement.executeQuery();
                 modelList = new ArrayList<>();
                 while (resultSet.next()) {
                     Model model = new Model(
@@ -41,6 +44,7 @@ public class Model_Querries {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+                modelList = new ArrayList<>();
             }
         }
         return modelList;

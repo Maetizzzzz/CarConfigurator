@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carconfigurator">
 
@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".brand.Brand_Activity" />
         <activity android:name=".model.Model_Activity" />
+        <activity android:name=".version.Version_Activity" />
+        <activity android:name=".engine.Engine_Activity" />
     </application>
-
 </manifest>

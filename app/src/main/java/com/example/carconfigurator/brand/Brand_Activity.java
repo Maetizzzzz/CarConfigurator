@@ -34,6 +34,7 @@ public class Brand_Activity extends AppCompatActivity {
         ConfiguratedCar configuratedCar = new ConfiguratedCar();
         List<Brand> brandList = fillBrandList();
         buildRecyclerView(brandList, configuratedCar);
+        Toast.makeText(this, "ID Brand: " +brandList.get(0).getId(),Toast.LENGTH_LONG).show();
     }
 
     private List<Brand> fillBrandList() {

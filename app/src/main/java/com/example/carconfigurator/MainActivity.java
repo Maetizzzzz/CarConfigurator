@@ -22,9 +22,11 @@ import com.example.carconfigurator.database.ConnectionException;
 import com.example.carconfigurator.database.Connector;
 import com.example.carconfigurator.database.TestQuerries;
 import com.example.carconfigurator.brand.Brand_Activity;
+import com.example.carconfigurator.engine.Engine_Querries;
 import com.example.carconfigurator.model.Model_Querries;
 import com.example.carconfigurator.testSpinner.SpinnerAdapter;
 import com.example.carconfigurator.testSpinner.SpinnerItem;
+import com.example.carconfigurator.version.Version_Querries;
 
 import java.util.ArrayList;
 
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Connector.connectToTestDatabase();
         TextView anzBrand = findViewById(R.id.anzBrand);
 
-        anzBrand.setText(Model_Querries.Q_GETALLDATA);
+        anzBrand.setText(Engine_Querries.Q_GETALLDATA);
     }
 
     private void createOnClickEvent() {

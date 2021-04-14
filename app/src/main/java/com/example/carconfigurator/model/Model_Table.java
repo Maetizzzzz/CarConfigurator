@@ -1,6 +1,7 @@
 package com.example.carconfigurator.model;
 
 public enum Model_Table {
+    TABLE_NAME("Model"),
     ID("id_model"),
     NAME("name"),
     PRICE("price"),
