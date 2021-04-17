@@ -24,5 +24,7 @@
         <activity android:name=".model.Model_Activity" />
         <activity android:name=".version.Version_Activity" />
         <activity android:name=".engine.Engine_Activity" />
+        <activity android:name=".colour.Colour_Activity" />
+        <activity android:name=".upholstery.Upholstery_Activity" />
     </application>
 </manifest>

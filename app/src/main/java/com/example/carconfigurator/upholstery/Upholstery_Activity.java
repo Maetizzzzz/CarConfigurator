@@ -1,4 +1,4 @@
-package com.example.carconfigurator.engine;
+package com.example.carconfigurator.upholstery;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,25 +10,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carconfigurator.ConfiguratedCar;
+import com.example.carconfigurator.MainActivity;
 import com.example.carconfigurator.R;
 import com.example.carconfigurator.colour.Colour_Activity;
 import com.example.carconfigurator.database.ConnectionException;
-import com.example.carconfigurator.model.Model_Activity;
-import com.example.carconfigurator.version.Version_Activity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Engine_Activity extends AppCompatActivity {
+public class Upholstery_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.engine_activity);
+        setContentView(R.layout.upholstery_activity);
 
         ConfiguratedCar configuratedCar = (ConfiguratedCar) getIntent().getSerializableExtra("configuratedCar");
 
-        List<Engine> engineList = fillEngineList(configuratedCar);
+        List<Upholstery> upholsteryList = fillUpholsteryList(configuratedCar);
 
         TextView brandVersionNameTextView = findViewById(R.id.brandVersionNameTextView);
         assert configuratedCar != null;
@@ -36,34 +35,34 @@ public class Engine_Activity extends AppCompatActivity {
                                         + " - "
                                         + configuratedCar.getModel().getName());
 
-        buildRecyclerView(engineList, configuratedCar);
+        buildRecyclerView(upholsteryList, configuratedCar);
         Toast.makeText(this, configuratedCar.getVersion().toString(), Toast.LENGTH_LONG).show();
     }
 
-    private List<Engine> fillEngineList(ConfiguratedCar configuratedCar) {
-        ArrayList<Engine> engineList = null;
+    private List<Upholstery> fillUpholsteryList(ConfiguratedCar configuratedCar) {
+        ArrayList<Upholstery> upholsteryList = null;
         try {
-            engineList = (ArrayList<Engine>) Engine_Querries.getAllEnginesForVersion(configuratedCar.getVersion().getId());
+            upholsteryList = (ArrayList<Upholstery>) Upholstery_Querries.getAllUpholsteriesForVersion(configuratedCar.getVersion().getId());
         } catch (ConnectionException e) {
             e.printStackTrace();
         }
-        return engineList;
+        return upholsteryList;
     }
 
-    private void buildRecyclerView(List<Engine> engineList, ConfiguratedCar configuratedCar) {
-        RecyclerView recyclerView = findViewById(R.id.engineRecyclerView);
+    private void buildRecyclerView(List<Upholstery> upholsteryList, ConfiguratedCar configuratedCar) {
+        RecyclerView recyclerView = findViewById(R.id.upholsteryRecyclerView);
         recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        Engine_Adapter adapter = new Engine_Adapter((ArrayList<Engine>) engineList);
+        Upholstery_Adapter adapter = new Upholstery_Adapter((ArrayList<Upholstery>) upholsteryList);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new Engine_Adapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new Upholstery_Adapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                configuratedCar.setEngine(engineList.get(position));
-                Intent intent = new Intent(Engine_Activity.this, Colour_Activity.class);
+                configuratedCar.setUpholstery(upholsteryList.get(position));
+                Intent intent = new Intent(Upholstery_Activity.this, MainActivity.class);
                 intent.putExtra("configuratedCar", configuratedCar);
                 startActivity(intent);
             }

@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.example.carconfigurator.brand.Brand;
 import com.example.carconfigurator.brand.Brand_Querries;
+import com.example.carconfigurator.colour.Colour_Querries;
 import com.example.carconfigurator.database.ConnectionException;
 import com.example.carconfigurator.database.Connector;
 import com.example.carconfigurator.database.TestQuerries;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Connector.connectToTestDatabase();
         TextView anzBrand = findViewById(R.id.anzBrand);
 
-        anzBrand.setText(Engine_Querries.Q_GETALLDATA);
+        anzBrand.setText(Colour_Querries.Q_GETALLDATA);
     }
 
     private void createOnClickEvent() {

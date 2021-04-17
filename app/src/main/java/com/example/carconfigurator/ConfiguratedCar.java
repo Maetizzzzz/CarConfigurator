@@ -1,8 +1,10 @@
 package com.example.carconfigurator;
 
 import com.example.carconfigurator.brand.Brand;
+import com.example.carconfigurator.colour.Colour;
 import com.example.carconfigurator.engine.Engine;
 import com.example.carconfigurator.model.Model;
+import com.example.carconfigurator.upholstery.Upholstery;
 import com.example.carconfigurator.version.Version;
 
 import java.io.Serializable;
@@ -12,6 +14,9 @@ public class ConfiguratedCar implements Serializable {
     private Model model;
     private Version version;
     private Engine engine;
+    private Colour colour;
+    private Upholstery upholstery;
+
     public Model getModel() {
         return model;
     }
@@ -42,5 +47,21 @@ public class ConfiguratedCar implements Serializable {
 
     public void setEngine(Engine engine) {
         this.engine = engine;
+    }
+
+    public void setColour(Colour colour) {
+        this.colour = colour;
+    }
+
+    public Colour getColour() {
+        return colour;
+    }
+
+    public Upholstery getUpholstery() {
+        return upholstery;
+    }
+
+    public void setUpholstery(Upholstery upholstery) {
+        this.upholstery = upholstery;
     }
 }
