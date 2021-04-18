@@ -14,6 +14,7 @@ import com.example.carconfigurator.MainActivity;
 import com.example.carconfigurator.R;
 import com.example.carconfigurator.colour.Colour_Activity;
 import com.example.carconfigurator.database.ConnectionException;
+import com.example.carconfigurator.summary.Summary_Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class Upholstery_Activity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 configuratedCar.setUpholstery(upholsteryList.get(position));
-                Intent intent = new Intent(Upholstery_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Upholstery_Activity.this, Summary_Activity.class);
                 intent.putExtra("configuratedCar", configuratedCar);
                 startActivity(intent);
             }

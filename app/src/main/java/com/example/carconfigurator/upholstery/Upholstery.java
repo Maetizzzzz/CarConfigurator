@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Upholstery implements Serializable {
     private int id;
-    private String upholstery;
+    private String name;
     private double price;
     private int image;
     private String standard;
     private int id_brand;
 
-    public Upholstery(int id, String upholstery, double price, int image, String standard, int id_brand) {
+    public Upholstery(int id, String name, double price, int image, String standard, int id_brand) {
         this.id = id;
-        this.upholstery = upholstery;
+        this.name = name;
         this.price = price;
         this.image = image;
         this.standard = standard;
@@ -23,8 +23,8 @@ public class Upholstery implements Serializable {
         return id;
     }
 
-    public String getUpholstery() {
-        return upholstery;
+    public String getName() {
+        return name;
     }
 
     public double getPrice() {

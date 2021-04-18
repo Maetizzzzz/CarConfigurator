@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Colour implements Serializable {
     private int id;
-    private String colour;
+    private String name;
     private double price;
     private int image;
     private String standard;
     private int id_brand;
 
-    public Colour(int id, String colour, double price, int image, String standard, int id_brand) {
+    public Colour(int id, String name, double price, int image, String standard, int id_brand) {
         this.id = id;
-        this.colour = colour;
+        this.name = name;
         this.price = price;
         this.image = image;
         this.standard = standard;
@@ -23,8 +23,8 @@ public class Colour implements Serializable {
         return id;
     }
 
-    public String getColour() {
-        return colour;
+    public String getName() {
+        return name;
     }
 
     public double getPrice() {

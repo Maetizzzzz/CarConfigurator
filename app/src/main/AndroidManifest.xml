@@ -26,5 +26,6 @@
         <activity android:name=".engine.Engine_Activity" />
         <activity android:name=".colour.Colour_Activity" />
         <activity android:name=".upholstery.Upholstery_Activity" />
+        <activity android:name=".summary.Summary_Activity" />
     </application>
 </manifest>

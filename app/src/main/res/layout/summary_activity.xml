@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/brand_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brand:" />
+    <TextView
+        android:id="@+id/brand_summary_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/brand_summary"
+        android:text="Brand name"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/model_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/brand_summary"
+        android:text="Model:" />
+    <TextView
+        android:id="@+id/model_summary_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/model_summary"
+        android:layout_below="@id/brand_summary_output"
+        android:text="Model name"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/version_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/model_summary"
+        android:text="Version:" />
+    <TextView
+        android:id="@+id/version_summary_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/version_summary"
+        android:layout_below="@id/model_summary_output"
+        android:layout_marginLeft="10dp"
+        android:text="Version name" />
+
+    <TextView
+        android:id="@+id/engine_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/version_summary"
+        android:text="Engine:" />
+    <TextView
+        android:id="@+id/engine_summary_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/engine_summary"
+        android:layout_below="@id/version_summary_output"
+        android:layout_marginLeft="10dp"
+        android:text="Engine name" />
+
+
+    <TextView
+        android:id="@+id/colour_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/engine_summary"
+        android:text="Colour:" />
+    <TextView
+        android:id="@+id/colour_summary_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/colour_summary"
+        android:layout_below="@id/engine_summary_output"
+        android:layout_marginLeft="10dp"
+        android:text="Colour name" />
+
+    <TextView
+        android:id="@+id/upholstery_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colour_summary"
+        android:text="Upholstery:" />
+    <TextView
+        android:id="@+id/upholstery_summary_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/upholstery_summary"
+        android:layout_below="@id/colour_summary_output"
+        android:layout_marginLeft="10dp"
+        android:text="Upholstery name" />
+
+    <Button
+        android:id="@+id/save_ConfiguredCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speichern"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

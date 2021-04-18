@@ -64,7 +64,7 @@ public class Upholstery_Adapter extends RecyclerView.Adapter<Upholstery_Adapter.
         Upholstery currentUpholstery = upholsteryArrayList.get(position);
 
         holder.upholsteryImageView.setImageResource(currentUpholstery.getImage());
-        holder.upholsteryTextView.setText(currentUpholstery.getUpholstery());
+        holder.upholsteryTextView.setText(currentUpholstery.getName());
     }
 
     @Override

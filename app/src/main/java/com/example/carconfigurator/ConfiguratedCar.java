@@ -16,6 +16,7 @@ public class ConfiguratedCar implements Serializable {
     private Engine engine;
     private Colour colour;
     private Upholstery upholstery;
+    private String name;
 
     public Model getModel() {
         return model;
@@ -63,5 +64,13 @@ public class ConfiguratedCar implements Serializable {
 
     public void setUpholstery(Upholstery upholstery) {
         this.upholstery = upholstery;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

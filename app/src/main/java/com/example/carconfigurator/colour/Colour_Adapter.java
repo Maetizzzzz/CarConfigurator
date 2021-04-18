@@ -64,7 +64,7 @@ public class Colour_Adapter extends RecyclerView.Adapter<Colour_Adapter.ColourVi
         Colour currentColour = colourArrayList.get(position);
 
         holder.colourImageView.setImageResource(currentColour.getImage());
-        holder.colourTextView.setText(currentColour.getColour());
+        holder.colourTextView.setText(currentColour.getName());
     }
 
     @Override
